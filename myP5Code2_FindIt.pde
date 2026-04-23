@@ -1,11 +1,20 @@
+
+// tree variables (star = tree) //
 var starXPos = [];
 var starYPos = [];
-var star = "⭐️";
+var star = "🌳";
 var starTotal = 100;
 
+// wood variables //
+var woodXPos = [];
+var woodYPos = [];
+var wood = "🪵";
+var woodTotal = 100;
+
+// ninja variables (planet = ninja) //
 var planetXPos = [];
 var planetYPos = [];
-var planet = "🪐";
+var planet = "🥷";
 var planetTotal = 3;
 var planetFound = 0;
 
@@ -55,6 +64,10 @@ var display = function(){
     text(star, starXPos[i], starYPos[i]);
   }
 
+  for(var i = 0; i < woodXPos.length; i ++){
+    text(wood, woodXPos[i], woodYPos[i]);
+  }
+
   fill(0,0,0);
   rect(0,400,600,50);
   fill(255,255,255);
@@ -68,6 +81,8 @@ var display = function(){
 }
 
 var reset = function(){
+  woodXPos = [];
+  woodYPos = [];
   starXPos = [];
   starYPos = [];
   planetXPos = [];
@@ -79,9 +94,24 @@ var reset = function(){
     starXPos.push(random(0,600));
     starYPos.push(random(0,400));
   }
+    
+    var i = 0;
+    while (i < woodTotal) {
+    woodXPos.push(random(0,600));
+    woodYPos.push(random(0,400));
+    i++;
+    }
+
+    /*
+    for(var i = 0; i < woodTotal; i++){
+    woodXPos.push(random(0,600));
+    woodYPos.push(random(0,400));
+  }
+*/
 
   for(var i = 0; i < planetTotal; i++){
     planetXPos.push(random(0,600));
     planetYPos.push(random(0,400));
   }
 }
+
